@@ -46,137 +46,45 @@ public class Pilot extends IRobotAdapter {
     long endTime;
     long backStartTime;
     boolean forward = true;
+    int[] lightBumpArr;
+    int left = 500;
+    int right = 500;
     public void initialize() throws ConnectionLostException {
-        startTime = SystemClock.elapsedRealtime();
     }
 
-    /** This method is called repeatedly. **/
-    //- + left & + - right
-            /*
-
-
-            maze wall hugger
-
+    public void loop() throws ConnectionLostException {
         readSensors(SENSORS_GROUP_ID6);
         readSensors(SENSORS_GROUP_ID101);
-
-        driveDirect(250, 250);
+        driveDirect(left, right);
         lightBumpArr = getLightBumps();
         dashboard.log("wall: " + getWallSignal());
         dashboard.log("Light: " + lightBumpArr[3]);
         for (int i = 0; i <= 5; i++) {
             dashboard.log(i + ": " + lightBumpArr[i]);
         }
-        if (getWallSignal() < 100){
-            driveDirect(250, 50);
+        //if light bump sensors from left to right front sense something, the robot turns left until it doesn't
+        if ( lightBumpArr[0] > 200 || lightBumpArr[1] > 200 || lightBumpArr[2] > 200 || lightBumpArr[3] > 200 || lightBumpArr[4] > 450 ) {
+            dashboard.log("++++++++++++++++++++++++++++++light");
+            driveDirect(-400, 400);
+            SystemClock.sleep(15);
         }
-        else if (getWallSignal() > 300){
-            driveDirect(50, 200);
+        //if far away, curves right
+        else if (getWallSignal() < 30){
+            dashboard.log("//////////////////////////////right");
+            left = 400;
+            right = 140;
         }
-        if ( lightBumpArr[0] > 200 || lightBumpArr[1] > 200 || lightBumpArr[2] > 200 || lightBumpArr[3] > 200 || lightBumpArr[4] > 200 ) {
-            driveDirect(-250, 250);
+        //if too close, curves left
+        else if (getWallSignal() > 450){
+            dashboard.log("--------------------------------left");
+            left = 140;
+            right = 400;
         }
-             */
-
-            /*
-
-
-            drag race
-
-        readSensors(SENSORS_GROUP_ID6);
-        readSensors(SENSORS_GROUP_ID101);
-        lightBumpArr = getLightBumps();
-        dashboard.log("wall: " + getWallSignal());
-        for (int i = 0; i <= 5; i++) {
-            dashboard.log(i + ": " + lightBumpArr[i]);
+        // if nothing is close enough, goes forward
+        else{
+            left = 400;
+            right = 400;
         }
-        if (forward) {
-            driveDirect(500, 500);
-            if (lightBumpArr[2] > 100 || lightBumpArr[3] > 100) {
-                endTime = SystemClock.elapsedRealtime();
-                dashboard.log("elapsed time: " + (endTime - startTime));
-                driveDirect(0, 0);
-                SystemClock.sleep(5000);
-                forward = false;
-            }
-            if (getWallSignal() < 2) {
-                driveDirect(500, 400);
-            } else if (getWallSignal() > 100) {
-                driveDirect(400, 500);
-            }
-        }
-        else if (!forward){
-            driveDirect(-500, 500);
-            SystemClock.sleep();
-            backStartTime = SystemClock.elapsedRealtime();
-            driveDirect(500, 500);
-            if (lightBumpArr[2] > 100 || lightBumpArr[3] > 100) {
-                endTime = SystemClock.elapsedRealtime();
-                dashboard.log("elapsed time: " + (endTime - startTime));
-                driveDirect(0, 0);
-                SystemClock.sleep(100000);
-            }
-            if (getWallSignal() < 2) {
-                driveDirect(500, 400);
-            } else if (getWallSignal() > 100) {
-                driveDirect(400, 500);
-            }
-            /*driveDirect(-500, -500);
-            if (getWallSignal() < 2) {
-                driveDirect(-500, -400);
-            } else if (getWallSignal() > 100) {
-                driveDirect(-400, -500);
-            }
-            if (SystemClock.elapsedRealtime() - backStartTime == endTime - startTime){
-                driveDirect(0, 0);
-                SystemClock.sleep(100000);
-            }*/
-
-        /*if (getWallSignal() < 50){
-            driveDirect(250, 50);
-        }
-        else if (getWallSignal() > 150){
-            driveDirect(50, 200);
-        }
-        if ( lightBumpArr[0] > 200 || lightBumpArr[1] > 200 || lightBumpArr[2] > 200 || lightBumpArr[3] > 200 || lightBumpArr[4] > 200 ) {
-            driveDirect(-250, 250);
-        }*/
-        /*
-        160 reserved
-        161 force field
-        164 green
-        165 green + force field
-        168 red
-        169 red + force field
-        172 red + green
-        173 red + green + force field
-        0   idrk
-         */
-    int[] lightBumpArr;
-    public void loop() throws ConnectionLostException {
-        readSensors(SENSORS_GROUP_ID6);
-        dashboard.log("" + getInfraredByte());
-        driveDirect(250,175);
-        if(isBumpLeft()&&isBumpRight()) {
-            if (getWallSignal()>200){
-                driveDirect(-500,500);
-
-            }
-        }
-        else if (isBumpRight() ){
-            driveDirect(-500,-500);
-            SystemClock.sleep(100);
-            driveDirect(-500, 500);
-            SystemClock.sleep(376);
-        }
-        else if(isBumpLeft()){
-            driveDirect(-500,-500);
-            SystemClock.sleep(100);
-            driveDirect(500, -500);
-            SystemClock.sleep(376);
-        }
-
-        //SystemClock.sleep(552);
     }
 
     /**

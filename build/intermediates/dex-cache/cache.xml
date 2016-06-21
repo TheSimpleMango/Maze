@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/build/intermediates/pre-dexed/debug/internal_impl-22.1.1_04ca41a5ff99a38c22a0aee56f567c8f08efbf3f.jar" />
+    </item>
+    <item
+        jar="/Users/MingDa/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/build/intermediates/pre-dexed/debug/support-annotations-22.1.1_d6ddd1f8852a0056bef9cee69d3add0cd9080356.jar" />
+    </item>
+    <item
+        jar="/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/build/intermediates/exploded-aar/Maze/iOIOiRobot2/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0356f5dc8c5a22b0ebd2c9350ac46d1521681c02">
+        <dex dex="/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/build/intermediates/pre-dexed/debug/Maze-iOIOiRobot2-unspecified_9ae5254ef962205e43401b0f80dfd9bd96af452b.jar" />
+    </item>
+    <item
+        jar="/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/build/intermediates/exploded-aar/Maze/iOIOLib/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5671c12325be89668ccc5e70fc94483f8ac274bc">
+        <dex dex="/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/build/intermediates/pre-dexed/debug/Maze-iOIOLib-unspecified_27265b9b2a9af0455cbe09ac4591134b21ed5fb9.jar" />
+    </item>
+    <item
+        jar="/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/build/intermediates/pre-dexed/debug/com.android.support-support-v4-22.1.1_a120009a7a53134bed43e9b2bb6137f7e55f51d4.jar" />
+    </item>
+
+</items>
