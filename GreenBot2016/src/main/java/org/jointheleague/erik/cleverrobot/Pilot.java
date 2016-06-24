@@ -84,6 +84,7 @@ public class Pilot extends IRobotAdapter {
         else{
             left = 400;
             right = 400;
+
         }
     }
 
