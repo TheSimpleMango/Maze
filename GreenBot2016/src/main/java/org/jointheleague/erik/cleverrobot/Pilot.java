@@ -62,7 +62,38 @@ public class Pilot extends IRobotAdapter {
         for (int i = 0; i <= 5; i++) {
             dashboard.log(i + ": " + lightBumpArr[i]);
         }
-        //if light bump sensors from left to right front sense something, the robot turns left until it doesn't
+        if (getInfraredByte() > 240 && getInfraredByte() < 255){
+            long x = SystemClock.elapsedRealtime();
+            /*
+            driveDirect(500, -500);
+            SystemClock.sleep(376);
+            while (!isBumpLeft() && !isBumpRight()){
+                driveDirect(500, 500);
+            }
+            driveDirect(-500, 500);
+            SystemClock.sleep(376);
+            while (!isBumpLeft() && !isBumpRight()){
+                driveDirect(500, 500);
+            }
+            driveDirect(-500, 500);
+            SystemClock.sleep(376);
+            while (!isBumpLeft() && !isBumpRight()){
+                driveDirect(500, 500);
+            }*/
+            while ( SystemClock.elapsedRealtime() - x < 50000) {
+                driveDirect(300, 100);
+                if(isBumpRight()){
+                    driveDirect(-250,400);
+                    SystemClock.sleep(1000);
+                }
+                else if(isBumpRight()&&isBumpLeft()){
+                    driveDirect(-500,500);
+                    SystemClock.sleep(300);
+                }
+            }
+        }
+
+        //if light bump sensors from far left to right front sense something, the robot turns left until it doesn't
         if ( lightBumpArr[0] > 200 || lightBumpArr[1] > 200 || lightBumpArr[2] > 200 || lightBumpArr[3] > 200 || lightBumpArr[4] > 450 ) {
             dashboard.log("++++++++++++++++++++++++++++++light");
             driveDirect(-400, 400);
@@ -84,7 +115,6 @@ public class Pilot extends IRobotAdapter {
         else{
             left = 400;
             right = 400;
-
         }
     }
 
