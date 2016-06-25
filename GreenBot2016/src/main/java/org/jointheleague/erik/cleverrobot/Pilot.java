@@ -62,45 +62,85 @@ public class Pilot extends IRobotAdapter {
         for (int i = 0; i <= 5; i++) {
             dashboard.log(i + ": " + lightBumpArr[i]);
         }
-        if (getInfraredByte() > 240 && getInfraredByte() < 255){
-            long x = SystemClock.elapsedRealtime();
-            /*
-            driveDirect(500, -500);
-            SystemClock.sleep(376);
-            while (!isBumpLeft() && !isBumpRight()){
-                driveDirect(500, 500);
-            }
-            driveDirect(-500, 500);
-            SystemClock.sleep(376);
-            while (!isBumpLeft() && !isBumpRight()){
-                driveDirect(500, 500);
-            }
-            driveDirect(-500, 500);
-            SystemClock.sleep(376);
-            while (!isBumpLeft() && !isBumpRight()){
-                driveDirect(500, 500);
-            }*/
-            while ( SystemClock.elapsedRealtime() - x < 50000) {
-                driveDirect(300, 100);
-                if(isBumpRight()){
-                    driveDirect(-250,400);
-                    SystemClock.sleep(1000);
-                }
-                else if(isBumpRight()&&isBumpLeft()){
-                    driveDirect(-500,500);
-                    SystemClock.sleep(300);
-                }
+        dashboard.log("Infrared: " + getInfraredByte());
+//        if (getInfraredByte() == 246 ||  getInfraredByte() == 250 || getInfraredByte() == 254){
+//            int x = 0;
+//            // green first
+//            if (getInfraredByte() == 246 && x == 0){
+//                dashboard.log("green first: " + getInfraredByte());
+//                x = 1;
+//                dashboard.log("x changed to " + x);
+//                while (getInfraredByte() != 250) {
+//                    readSensors(SENSORS_GROUP_ID6);
+//                    dashboard.log("goes forward until red: " + getInfraredByte());
+//                    driveDirect(50, 50);
+//                }
+//                while (getInfraredByte() != 254){
+//                    readSensors(SENSORS_GROUP_ID6);
+//                    dashboard.log("turns until middle: " + getInfraredByte());
+//                    driveDirect(-50, 50);
+//                }
+//                x = 3;
+//                dashboard.log("x changed to " + x);
+//            }
+//            // red first
+//            if (getInfraredByte() == 250 && x == 0){
+//                dashboard.log("red first");
+//                x = 2;
+//                dashboard.log("x changed to " + x);
+//                while (getInfraredByte() != 246){
+//                    readSensors(SENSORS_GROUP_ID6);
+//                    dashboard.log("goes forward until green: " + getInfraredByte());
+//                    driveDirect(50, 50);
+//                    if (Math.abs(getCurrent()) > 1000 || isBumpLeft() || isBumpRight()) {
+//                        SystemClock.sleep(500);
+//                    }
+//                }
+//                while (getInfraredByte() != 254){
+//                    readSensors(SENSORS_GROUP_ID6);
+//                    dashboard.log("turns until middle: " + getInfraredByte());
+//                    driveDirect(50, -50);
+//                    if (Math.abs(getCurrent()) > 1000 || isBumpLeft() || isBumpRight()) {
+//                        SystemClock.sleep(500);
+//                    }
+//                }
+//                x = 3;
+//                dashboard.log("x changed to " + x);
+//            }
+//            if (x == 3){
+//                dashboard.log("starts 3");
+//                driveDirect(100,100);
+//                while (getInfraredByte() == 246){
+//                    dashboard.log("curving right");
+//                    readSensors(SENSORS_GROUP_ID6);
+//                    driveDirect(100,50);
+//                }
+//                while (getInfraredByte() == 250){
+//                    dashboard.log("curving left");
+//                    readSensors(SENSORS_GROUP_ID6);
+//                    driveDirect(50,100);
+//                }
+//                if (Math.abs(getCurrent()) > 1000 || isBumpLeft() || isBumpRight()) {
+//                    SystemClock.sleep(500);
+//                }
+//            }
+//      }
+        if (Math.abs(getCurrent()) > 1500) {
+            dashboard.log("Stuck: " + getCurrent());
+            driveDirect(-500, -500);
+            SystemClock.sleep(50);
+            while (getWallSignal() == 0){
+                driveDirect(-500, 500);
             }
         }
-
         //if light bump sensors from far left to right front sense something, the robot turns left until it doesn't
         if ( lightBumpArr[0] > 200 || lightBumpArr[1] > 200 || lightBumpArr[2] > 200 || lightBumpArr[3] > 200 || lightBumpArr[4] > 450 ) {
             dashboard.log("++++++++++++++++++++++++++++++light");
             driveDirect(-400, 400);
-            SystemClock.sleep(15);
+            SystemClock.sleep(5);
         }
         //if far away, curves right
-        else if (getWallSignal() < 30){
+        else if (getWallSignal() < 20){
             dashboard.log("//////////////////////////////right");
             left = 400;
             right = 140;
