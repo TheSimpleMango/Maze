@@ -2,5 +2,9 @@
     {
         "merged": "/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/build/intermediates/res/merged/debug/layout/main.xml",
         "source": "/Users/MingDa/Desktop/Programming/IARoC/Maze/GreenBot2016/src/main/res/layout/main.xml"
+    },
+    {
+        "merged": "/Users/englab/Desktop/IARoC/Maze/GreenBot2016/build/intermediates/res/merged/debug/layout/main.xml",
+        "source": "/Users/englab/Desktop/IARoC/Maze/GreenBot2016/src/main/res/layout/main.xml"
     }
 ]

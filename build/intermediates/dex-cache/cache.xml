@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/englab/Desktop/IARoC/Maze/GreenBot2016/build/intermediates/exploded-aar/Maze/iOIOiRobot2/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ca45f28ef06b1b2fd15ccfa3e408c1be74f8aa42">
+        <dex dex="/Users/englab/Desktop/IARoC/Maze/GreenBot2016/build/intermediates/pre-dexed/debug/Maze-iOIOiRobot2-unspecified_82d790ea4343be27dbafe681493f5568912097de.jar" />
+    </item>
+    <item
+        jar="/Users/englab/Desktop/IARoC/Maze/GreenBot2016/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/Users/englab/Desktop/IARoC/Maze/GreenBot2016/build/intermediates/pre-dexed/debug/com.android.support-support-v4-22.1.1_4f44bff9aa23f65612d04caeb05667d975c8227c.jar" />
+    </item>
+    <item
+        jar="/Users/englab/Desktop/IARoC/Maze/GreenBot2016/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/englab/Desktop/IARoC/Maze/GreenBot2016/build/intermediates/pre-dexed/debug/internal_impl-22.1.1_8578040734c5b03f0718901f4bfe2364e6c53c26.jar" />
+    </item>
+    <item
+        jar="/Users/englab/Desktop/IARoC/Maze/GreenBot2016/build/intermediates/exploded-aar/Maze/iOIOLib/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="dd33d596bd320cfcf8d4663bfd6f36ddaeb39516">
+        <dex dex="/Users/englab/Desktop/IARoC/Maze/GreenBot2016/build/intermediates/pre-dexed/debug/Maze-iOIOLib-unspecified_b15c1c9d6e2f43d931fccdbab7e069dad1f9f60a.jar" />
+    </item>
+    <item
+        jar="/Users/englab/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="/Users/englab/Desktop/IARoC/Maze/GreenBot2016/build/intermediates/pre-dexed/debug/support-annotations-22.1.1_b193afa8b9394591e9c3c5d8ef9bf704933623dd.jar" />
+    </item>
+
+</items>
